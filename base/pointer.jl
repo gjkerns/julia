@@ -53,21 +53,3 @@ isequal(x::Ptr, y::Ptr) = uint(x) == uint(y)
 -{T}(x::Ptr{T}, y::Integer) = pointer(T, uint(uint(x) - y))
 +(x::Integer, y::Ptr) = y + x
 
-typealias Cchar Int8
-typealias Cuchar Int8
-typealias Cshortint Int16
-typealias Cushortint Uint16
-typealias Cint Int32
-typealias Cuint Uint32
-if OS_NAME == :Windows
-    typealias Clong Int32
-    typealias Culong Uint32
-else
-    typealias Clong Int
-    typealias Culong Int
-end
-typealias Cptrdiff Int # ptrdiff_t
-typealias Cptrsize Uint # size_t
-typealias Clonglong Int64
-typealias Culonglong Uint64
-
